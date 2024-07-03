@@ -12,6 +12,7 @@ This repository contains the source code accompanying our CVPR 2024 paper.
 - Pillow (9.4.0)
 - PyYaml (6.0)
 - tensorboardX (2.6)
+
 We also provide the pre-built conda environment for easier setup. Simply run
 ```
 $ conda env create -f environment.yml
@@ -52,7 +53,7 @@ where {eval_dataset}=imagenet-a/imagenet-r/imagenetV2/imagenet-sketch.
 
 
 
-# Citation
+# Cite
 If you find this repository useful, please consider cite our paper.
 ```
 @InProceedings{Wu_2024_CVPR,
