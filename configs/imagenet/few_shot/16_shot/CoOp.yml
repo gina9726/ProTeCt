@@ -1,0 +1,47 @@
+seed: 1
+model:
+    arch: coop
+    name: ViT-B/16 # available_models = ['RN50', 'RN101', 'RN50x4', 'RN50x16', 'RN50x64', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14', 'ViT-L/14@336px']
+    prec: fp16 # choose between ["fp16", "fp32", "amp"]
+    n_ctx: 16 # number of context vectors
+    ctx_init: "" # number of context vectors choose "" for using learnable prompt or specify any prompt like "a photo of a"
+    csc: False # class-specific context
+    class_token_position: "end"  # 'middle' or 'end' or 'front'
+
+data:
+    name: imagenet
+    loader: HierDataLoader
+    data_root: prepro/raw/imagenet
+    train: prepro/data/imagenet/gt_train.txt
+    test: prepro/data/imagenet/gt_test.txt
+    hierarchy: prepro/data/imagenet/tree.npy
+
+    batch_size: 8
+    test_batch_size: 2048
+    n_workers: 4
+    sampler:
+        name: nshot
+        nshot: 16
+    transform: clip
+
+# what are the label set used for initialized the model (i.e. text encoder)
+init_label_set: "leaf"
+
+# refer to the following url for setting up the learning rate and optimization
+# https://github.com/KaiyangZhou/CoOp/search?q=sgd
+optim:
+  name: "sgd"
+  lr: 0.02
+  max_epoch: 30
+  lr_scheduler: "cosine"
+  warmup_epoch: 1
+  warmup_type: "constant"
+  warmup_cons_lr: 0.001
+  use_scheduler: True
+
+# loss function
+loss:
+  name: "ce"
+
+print_freq: 20
+exp: ViT-B_16/few_shot/16_shot/CoOp

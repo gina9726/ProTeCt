@@ -1,0 +1,21 @@
+seed: 100
+treecut_generator:
+    arch: treecut_generator
+    dropout_rate: 0.1 # default: 0.1
+data:
+    name: sun
+    loader: HierDataLoader
+    data_root: prepro/raw/sun
+    test: prepro/data/sun/gt_test.txt
+    hierarchy: prepro/data/sun/tree.npy
+    batch_size: 128
+    n_workers: 4
+    sampler:
+        name: nshot
+        nshot: 16
+    transform: clip
+
+# number of sampled treecuts
+n_tree: 25
+
+name: multi/seed100
