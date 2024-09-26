@@ -21,7 +21,7 @@ $ conda activate ProTeCt
 
 # Data preparation
 - CIFAR100 
-[[Raw images]](https://www.cs.toronto.edu/~kriz/cifar.html)
+[[Raw images]](https://www.cs.toronto.edu/~kriz/cifar.html) [[hierarchical version]](https://drive.google.com/file/d/1v4YbWqiwmKI-_aZcPwmE7n2zqg-d6RmL/view?usp=sharing)
 - SUN
 [[Raw_images]](https://vision.princeton.edu/projects/2010/SUN/)
 - ImageNet
